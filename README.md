@@ -1,75 +1,57 @@
-# Nuxt Minimal Starter
+# Nuxt + Reka UI + Storyblok
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern, fast, and flexible website built with **Nuxt 3**, styled with **Reka UI**, and powered by **Storyblok** as a headless CMS.
 
-## Setup
+## 🚀 Tech Stack
 
-Make sure to install dependencies:
+- **[Nuxt 3](https://nuxt.com/)** — Vue-based framework for SSR & static sites
+- **[Reka UI](https://reka-ui.com/)** — Lightweight, accessible, and modern UI components
+- **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS classes framework
+- **[Storyblok](https://www.storyblok.com/)** — Headless CMS for structured content and visual editing
+
+## 🛠️ Setup
 
 ```bash
-# npm
+# 1. Clone the repo
+git clone https://github.com/elliotcln/storyblok-nuxt-root.git
+cd yourproject
+
+# 2. Install dependencies
 npm install
 
-# pnpm
-pnpm install
+# 3. Add your Storyblok API token
+cp .env.example .env
+# Then edit .env with your Storyblok access token
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# 4. Run the dev server
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Visit [http://localhost:3000](http://localhost:3000) to see your app live.
 
-Build the application for production:
+## 📂 Project Structure
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+.
+├── components/     # Reusable Vue components
+├── pages/          # Nuxt pages (auto-routed)
+├── storyblok/      # Storyblok content blocks & helpers
+├── reka/           # Custom Reka UI setup/theme
+├── public/         # Static assets
+└── nuxt.config.ts  # Nuxt configuration
 ```
 
-Locally preview production build:
+## 🧩 Integrations
 
-```bash
-# npm
-npm run preview
+- Dynamic content fetched from Storyblok API
+- Styled components via Reka UI
+- Auto-imported pages and components from Nuxt
 
-# pnpm
-pnpm preview
+## 🧑‍💻 Development
 
-# yarn
-yarn preview
+- Run `npm run lint` to check for code style issues
+- Run `npm run build` to generate a production build
 
-# bun
-bun run preview
-```
+## 📄 License
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is licensed under the [MIT License](LICENSE).
