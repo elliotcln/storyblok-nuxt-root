@@ -2,19 +2,4 @@
 * Tailwind CSS base styles
 **/
 @import "tailwindcss";
-
-@layer utilities {
-  .container {
-    @apply mx-auto px-4;
-  }
-  .section {
-    @apply py-8 md:py-12 lg:py-16;
-  }
-}
-
-/**
-* daisyUI styles
-**/
-@plugin "daisyui" {
-  themes: winter --default;
-}
+@import "@nuxt/ui";

@@ -1,5 +1,11 @@
 <template>
-  <div></div>
+  <UHeader title="Nuxt & Storyblok Starter">
+    <template #right>
+      <UButton to="/">Sign In</UButton>
+    </template>
+
+    <template #body></template>
+  </UHeader>
 </template>
 
 <script setup></script>

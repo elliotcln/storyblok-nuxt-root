@@ -1,11 +1,11 @@
 # Nuxt + Reka UI + Storyblok
 
-A modern, fast, and flexible website built with **Nuxt 3**, styled with **Reka UI**, and powered by **Storyblok** as a headless CMS.
+A modern, fast, and flexible website built with **Nuxt 3**, styled with **Nuxt UI & TailwindCSS**, and powered by **Storyblok** as a headless CMS.
 
 ## 🚀 Tech Stack
 
 - **[Nuxt 3](https://nuxt.com/)** — Vue-based framework for SSR & static sites
-- **[Reka UI](https://reka-ui.com/)** — Lightweight, accessible, and modern UI components
+- **[Nuxt UI](https://ui.nuxt.com/)** — Lightweight, accessible, and modern UI components
 - **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS classes framework
 - **[Storyblok](https://www.storyblok.com/)** — Headless CMS for structured content and visual editing
 
@@ -36,7 +36,6 @@ Visit [http://localhost:3000](http://localhost:3000) to see your app live.
 ├── components/     # Reusable Vue components
 ├── pages/          # Nuxt pages (auto-routed)
 ├── storyblok/      # Storyblok content blocks & helpers
-├── reka/           # Custom Reka UI setup/theme
 ├── public/         # Static assets
 └── nuxt.config.ts  # Nuxt configuration
 ```
@@ -44,7 +43,7 @@ Visit [http://localhost:3000](http://localhost:3000) to see your app live.
 ## 🧩 Integrations
 
 - Dynamic content fetched from Storyblok API
-- Styled components via Reka UI
+- Styled components via Nuxt UI
 - Auto-imported pages and components from Nuxt
 
 ## 🧑‍💻 Development
