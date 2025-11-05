@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@storyblok/nuxt", "reka-ui/nuxt"],
+  modules: ["@storyblok/nuxt", "reka-ui/nuxt", "@nuxt/icon"],
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss()] },
 

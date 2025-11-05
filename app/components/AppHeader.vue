@@ -1,9 +1,5 @@
 <template>
-  <AppHeader />
-  <main>
-    <NuxtPage />
-  </main>
-  <AppFooter />
+  <div></div>
 </template>
 
 <script setup></script>

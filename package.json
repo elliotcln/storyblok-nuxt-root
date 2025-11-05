@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/icon": "2.1.0",
     "@storyblok/nuxt": "^8.2.1",
     "@tailwindcss/vite": "^4.1.16",
     "daisyui": "^5.4.4",
