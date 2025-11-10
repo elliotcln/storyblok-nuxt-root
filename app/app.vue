@@ -6,6 +6,10 @@
   </UApp>
 </template>
 
-<script setup></script>
+<script setup>
+useHead({
+  titleTemplate: "%s - Nuxt & Storyblok Starter",
+});
+</script>
 
 <style lang="scss" scoped></style>

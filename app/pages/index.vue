@@ -14,6 +14,12 @@
 </template>
 
 <script setup>
+const title = ref("Welcome");
+
+useSeoMeta({
+  title: () => title,
+});
+
 const items = ref([
   {
     icon: "stash:dollar-sign",
