@@ -1,5 +1,5 @@
 <template>
-  <UHeader title="Nuxt & Storyblok Starter">
+  <UHeader :title="config.app_title">
     <UNavigationMenu :items="links" />
 
     <template #right>
@@ -19,6 +19,10 @@
 </template>
 
 <script setup>
+defineProps({
+  config: Object,
+});
+
 const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
