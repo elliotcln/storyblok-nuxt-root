@@ -1,15 +1,15 @@
 <template>
-  <UApp>
-    <AppHeader :config="config" />
+  <SkipLinks />
+  <AppHeader :config="config" />
+  <main id="main">
     <NuxtPage
-      id="main"
       :class="[
         'page',
         route.path === '/' ? 'page--index' : 'page--' + route.path.substring(1),
       ]"
     />
-    <AppFooter :config="config" />
-  </UApp>
+  </main>
+  <AppFooter :config="config" />
 </template>
 
 <script setup>

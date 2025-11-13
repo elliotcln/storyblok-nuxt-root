@@ -1,36 +1,38 @@
 <template>
-  <USeparator icon="lucide:asterisk" class="mt-4" />
-  <UFooter>
-    <template #left>
-      <p class="text-muted text-sm">
-        Copyright © {{ new Date().getFullYear() }}
+  <footer
+    role="contentinfo"
+    class="header px-4 lg:px-8 py-4 border-t border-accent"
+  >
+    <div
+      class="container flex flex-col gap-2 lg:flex-row-reverse lg:justify-between items-center"
+    >
+      <div class="flex">
+        <Button v-if="config.facebook.url" as-child size="icon" variant="ghost"
+          ><a :href="config.facebook.url" :target="config.facebook.target"
+            ><Facebook /></a
+        ></Button>
+        <Button v-if="config.instagram.url" as-child size="icon" variant="ghost"
+          ><a :href="config.instagram.url" :target="config.instagram.target"
+            ><Instagram /></a
+        ></Button>
+      </div>
+      <p
+        class="text-balance text-center md:text-left leading-loose text-sm text-muted-foreground"
+      >
+        Built with
+        <a href="https://shadcn-vue.com/" target="_blank">shadcdn</a> and
+        <a href="https://nuxt.com/" target="_blank">Nuxt3</a>. Code available on
+        <a href="/" target="_blank">Github</a>. Created by
+        <a href="https://alty.studio" target="_blank">Alty Studio</a>.
       </p>
-    </template>
-    <UNavigationMenu :items="footerLinks" variant="link" />
-    <template #right>
-      <UButton
-        v-if="config.facebook"
-        icon="stash:social-facebook-solid"
-        color="neutral"
-        variant="ghost"
-        :to="config.facebook.url"
-        :target="config.facebook.target ? config.facebook.target : '_self'"
-        aria-label="Facebook"
-      />
-      <UButton
-        v-if="config.instagram"
-        icon="ant-design:instagram-filled"
-        color="neutral"
-        variant="ghost"
-        :to="config.instagram.url"
-        :target="config.instagram.target ? config.instagram.target : '_self'"
-        aria-label="Instagram"
-      />
-    </template>
-  </UFooter>
+    </div>
+  </footer>
 </template>
 
 <script setup>
+import { Button } from "./ui/button";
+import { Instagram, Facebook } from "lucide-vue-next";
+
 defineProps({
   config: Object,
 });
@@ -40,4 +42,8 @@ const footerLinks = [
 ];
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+a {
+  @apply underline underline-offset-4;
+}
+</style>
