@@ -4,7 +4,7 @@
       <template v-for="item in items" :key="item.label">
         <NavigationMenuItem>
           <NavigationMenuLink
-            v-if="item.children.length === 0"
+            v-if="!item.children || item.children.length === 0"
             as-child
             :class="navigationMenuTriggerStyle()"
           >

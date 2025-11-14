@@ -1,15 +1,18 @@
 <template>
   <header role="banner" class="header px-4 lg:px-8 py-2 border-b border-accent">
     <div class="header-content flex h-full items-center justify-between">
-      <NuxtLink
-        v-if="!config.app_logo.filename"
-        to="/"
-        class="text-lg font-semibold"
-        >{{ config.app_title }}</NuxtLink
-      >
-      <NuxtLink v-else to="/"
-        ><img :src="config.app_logo.filename" alt="" class="h-12"
-      /></NuxtLink>
+      <Skeleton v-if="!config" class="w-[250px] h-6" />
+      <template v-else>
+        <NuxtLink
+          v-if="!config.app_logo.filename"
+          to="/"
+          class="text-lg font-semibold"
+          >{{ config.app_title }}</NuxtLink
+        >
+        <NuxtLink v-else to="/"
+          ><img :src="config.app_logo.filename" alt="" class="h-12"
+        /></NuxtLink>
+      </template>
 
       <!-- Desktop Navigation -->
       <NavigationDesktop :items="navItems" />
@@ -40,26 +43,17 @@ const navItems = [
   {
     label: "Paid offers",
     to: "/",
-    children: [
-      {
-        label: "test",
-        to: "/",
-      },
-      {
-        label: "test 2",
-        to: "/",
-      },
-    ],
+    // children: [],
   },
   {
     label: "Volunteer offers",
     to: "/volunteer",
-    children: [],
+    // children: [],
   },
   {
     label: "About HH",
     to: "/about",
-    children: [],
+    // children: [],
   },
 ];
 </script>

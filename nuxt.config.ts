@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   modules: ["@storyblok/nuxt", "@pinia/nuxt", "shadcn-nuxt"],
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss(), mkcert()] },
+  // ssr: false,
 
   shadcn: {
     prefix: "",

@@ -13,20 +13,31 @@
 </template>
 
 <script setup>
+import { useLocalStorage, useStorage } from "@vueuse/core";
+
 const route = useRoute();
 const configStore = useConfigStore();
-configStore.fetchConfig();
 
-const config = computed(() => {
-  console.log("config", config);
-  return configStore.getConfig;
+const config = ref();
+const localConfig = useLocalStorage("config").value;
+console.log("configLocal", localConfig);
+
+onMounted(async () => {
+  if (localConfig === undefined) {
+    await configStore.fetchConfig().then((result) => {
+      config.value = result;
+      console.log("result", result);
+    });
+  } else {
+    config.value = JSON.parse(localConfig);
+  }
 });
 
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
-      ? `${titleChunk} - ${config.value.app_title}`
-      : config.value.app_title;
+      ? `${titleChunk} - ${config?.value?.app_title}`
+      : config?.value?.app_title;
   },
 });
 </script>

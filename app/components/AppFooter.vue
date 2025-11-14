@@ -7,11 +7,15 @@
       class="container flex flex-col gap-2 lg:flex-row-reverse lg:justify-between items-center"
     >
       <div class="flex">
-        <Button v-if="config.facebook.url" as-child size="icon" variant="ghost"
+        <Button v-if="config?.facebook.url" as-child size="icon" variant="ghost"
           ><a :href="config.facebook.url" :target="config.facebook.target"
             ><Facebook /></a
         ></Button>
-        <Button v-if="config.instagram.url" as-child size="icon" variant="ghost"
+        <Button
+          v-if="config?.instagram.url"
+          as-child
+          size="icon"
+          variant="ghost"
           ><a :href="config.instagram.url" :target="config.instagram.target"
             ><Instagram /></a
         ></Button>

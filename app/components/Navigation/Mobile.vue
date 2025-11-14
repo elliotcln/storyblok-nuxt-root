@@ -21,7 +21,7 @@
       <nav class="px-4 pb-4">
         <ul>
           <li v-for="item in items">
-            <template v-if="item.children.length === 0">
+            <template v-if="!item.children || item.children.length === 0">
               <Item as-child>
                 <NuxtLink :to="item.to">
                   <ItemContent>

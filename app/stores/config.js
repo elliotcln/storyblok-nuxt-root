@@ -1,8 +1,9 @@
+import { useLocalStorage, useStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 
 export const useConfigStore = defineStore("config", {
   state: () => ({
-    config: [],
+    config: useLocalStorage("config", {}),
   }),
 
   getters: {
@@ -18,7 +19,14 @@ export const useConfigStore = defineStore("config", {
           version: "draft",
         },
       });
-      this.config = story.value.content;
+
+      // console.log("story", story.value.content);
+
+      this.config = useLocalStorage("config", story.value.content);
+      console.log("this.config", this.config);
+      return story.value.content;
+
+      // this.config = story.content.value;
     },
   },
 });
