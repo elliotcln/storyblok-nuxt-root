@@ -20,9 +20,13 @@
         class="text-balance text-center md:text-left leading-loose text-sm text-muted-foreground"
       >
         Built with
-        <a href="https://shadcn-vue.com/" target="_blank">shadcdn</a> and
+        <a href="https://shadcn-vue.com/" target="_blank">shadcn</a> and
         <a href="https://nuxt.com/" target="_blank">Nuxt3</a>. Code available on
-        <a href="/" target="_blank">Github</a>. Created by
+        <a
+          href="https://github.com/elliotcln/storyblok-nuxt-root"
+          target="_blank"
+          >Github</a
+        >. Created by
         <a href="https://alty.studio" target="_blank">Alty Studio</a>.
       </p>
     </div>
@@ -30,7 +34,6 @@
 </template>
 
 <script setup>
-import { Button } from "./ui/button";
 import { Instagram, Facebook } from "lucide-vue-next";
 
 defineProps({

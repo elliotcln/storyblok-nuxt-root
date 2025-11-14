@@ -9,7 +9,10 @@ export default defineNuxtConfig({
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss(), mkcert()] },
 
-  shadcn: {},
+  shadcn: {
+    prefix: "",
+    componentDir: "~/components/ui",
+  },
 
   storyblok: {
     accessToken: "GKGNH3J8IBPu0y0JAo5uxwtt",
@@ -19,7 +22,7 @@ export default defineNuxtConfig({
     },
   },
 
-  devServer: {
-    https: true,
-  },
+  // devServer: {
+  //   https: true,
+  // },
 });

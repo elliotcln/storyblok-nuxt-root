@@ -71,18 +71,8 @@
 </template>
 
 <script setup>
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  navigationMenuTriggerStyle,
-} from "./ui/navigation-menu";
-import { Separator } from "./ui/separator";
-import { Item, ItemContent, ItemHeader } from "./ui/item";
+import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
 import { LogIn, Menu, ChevronRight } from "lucide-vue-next";
-import { Drawer, DrawerTrigger, DrawerContent } from "./ui/drawer";
-import { Button } from "./ui/button";
 
 defineProps({
   config: Object,
