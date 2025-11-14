@@ -1,14 +1,9 @@
-/**
-* Tailwind CSS base styles
-**/
-/*---break---*/
-/* @plugin "tailwindcss-animate"; */
 @import "tailwindcss";
-/* @import "@nuxt/ui"; */
-/* @import "tw-animate-css"; */
-/*---break---*/
+
+@plugin "tailwindcss-animate";
+
 @custom-variant dark (&:is(.dark *));
-/*---break---*/
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -47,7 +42,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
-/*---break---*/
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -83,7 +78,7 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
-/*---break---*/
+
 .dark {
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -118,7 +113,7 @@
   --sidebar-border: oklch(0.279 0.041 260.031);
   --sidebar-ring: oklch(0.446 0.043 257.281);
 }
-/*---break---*/
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -129,7 +124,5 @@
 }
 
 @utility container {
-  /* min-width: var(--container-7xl) !important; */
-  margin-inline: auto;
-  padding-inline: 1rem;
+  @apply mx-auto px-4;
 }

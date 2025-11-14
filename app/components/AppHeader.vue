@@ -1,63 +1,22 @@
 <template>
   <header role="banner" class="header px-4 lg:px-8 py-2 border-b border-accent">
     <div class="header-content flex h-full items-center justify-between">
-      <NuxtLink to="/" class="text-lg font-semibold">{{
-        config.app_title
-      }}</NuxtLink>
+      <NuxtLink
+        v-if="!config.app_logo.filename"
+        to="/"
+        class="text-lg font-semibold"
+        >{{ config.app_title }}</NuxtLink
+      >
+      <NuxtLink v-else to="/"
+        ><img :src="config.app_logo.filename" alt="" class="h-12"
+      /></NuxtLink>
 
       <!-- Desktop Navigation -->
-      <NavigationMenu id="main-nav" class="max-xl:hidden">
-        <NavigationMenuList>
-          <NavigationMenuItem v-for="item in navItems">
-            <NavigationMenuLink as-child :class="navigationMenuTriggerStyle()">
-              <NuxtLink :to="item.to">{{ item.label }}</NuxtLink>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+      <NavigationDesktop :items="navItems" />
       <!--  -->
 
       <div class="header-content--right flex gap-2">
-        <!-- Mobile Navigation -->
-        <Drawer>
-          <DrawerTrigger as-child>
-            <Button
-              size="icon"
-              variant="outline"
-              class="xl:hidden"
-              aria-label="toggle mobile navigation"
-              ><Menu
-            /></Button>
-          </DrawerTrigger>
-          <DrawerContent>
-            <nav class="px-4 pb-4">
-              <ul>
-                <li v-for="item in navItems">
-                  <Item as-child>
-                    <NuxtLink :to="item.to">
-                      <ItemContent>
-                        <ItemHeader>{{ item.label }}</ItemHeader>
-                      </ItemContent>
-                      <ItemActions>
-                        <ChevronRight class="h-4 w-4" />
-                      </ItemActions>
-                    </NuxtLink>
-                  </Item>
-                </li>
-              </ul>
-              <Separator class="my-4" />
-              <div class="flex flex-col gap-2">
-                <Button as-child class="w-full"
-                  ><NuxtLink to="/">Post an offer</NuxtLink></Button
-                >
-                <Button as-child variant="secondary" class="w-full"
-                  ><NuxtLink to="/signin"><LogIn /> Sign In</NuxtLink></Button
-                >
-              </div>
-            </nav>
-          </DrawerContent>
-        </Drawer>
-        <!-- -->
+        <NavigationMobile :items="navItems" />
 
         <Button as-child class="hidden xl:inline-flex"
           ><NuxtLink to="/">Post an offer</NuxtLink></Button
@@ -71,8 +30,7 @@
 </template>
 
 <script setup>
-import { navigationMenuTriggerStyle } from "./ui/navigation-menu";
-import { LogIn, Menu, ChevronRight } from "lucide-vue-next";
+import { LogIn } from "lucide-vue-next";
 
 defineProps({
   config: Object,
@@ -82,14 +40,26 @@ const navItems = [
   {
     label: "Paid offers",
     to: "/",
+    children: [
+      {
+        label: "test",
+        to: "/",
+      },
+      {
+        label: "test 2",
+        to: "/",
+      },
+    ],
   },
   {
     label: "Volunteer offers",
     to: "/volunteer",
+    children: [],
   },
   {
     label: "About HH",
     to: "/about",
+    children: [],
   },
 ];
 </script>
