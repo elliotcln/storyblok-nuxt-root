@@ -31,8 +31,8 @@ onMounted(async () => {
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
-      ? `${titleChunk} - ${config?.value.app_title}`
-      : config?.value.app_title;
+      ? `${titleChunk} - ${config?.value?.app_title}`
+      : config?.value?.app_title;
   },
 });
 </script>

@@ -1,8 +1,5 @@
 <template>
-  <footer
-    role="contentinfo"
-    class="header px-4 lg:px-8 py-4 border-t border-accent"
-  >
+  <footer role="contentinfo" class="header py-4 border-t border-accent">
     <div
       class="container flex flex-col gap-2 lg:flex-row-reverse lg:justify-between items-center"
     >

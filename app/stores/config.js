@@ -29,6 +29,7 @@ export const useConfigStore = defineStore("config", {
         await useAsyncStoryblok("config", {
           api: {
             version: "draft",
+            resolve_links: "url",
           },
         }).then(({ story }) => {
           console.log("fetched config from Storyblok:", story?.value?.content);

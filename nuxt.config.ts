@@ -5,7 +5,7 @@ import mkcert from "vite-plugin-mkcert";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@storyblok/nuxt", "@pinia/nuxt", "shadcn-nuxt"],
+  modules: ["@storyblok/nuxt", "@pinia/nuxt", "shadcn-nuxt", "@nuxt/icon"],
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss(), mkcert()] },
   // ssr: false,
