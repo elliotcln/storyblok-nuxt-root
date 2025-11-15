@@ -1,9 +1,9 @@
-import { useLocalStorage, useStorage } from "@vueuse/core";
+import { get, useLocalStorage, useStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 
 export const useConfigStore = defineStore("config", {
   state: () => ({
-    config: useLocalStorage("config", {}),
+    config: useLocalStorage("config", null),
   }),
 
   getters: {
@@ -13,20 +13,31 @@ export const useConfigStore = defineStore("config", {
   },
 
   actions: {
+    setConfig(newConfig) {
+      this.config = useLocalStorage("config", newConfig);
+    },
     async fetchConfig() {
-      const { story } = await useAsyncStoryblok("config", {
-        api: {
-          version: "draft",
-        },
-      });
+      const result = ref();
+      const localConfig = useLocalStorage("config");
 
-      // console.log("story", story.value.content);
+      if (localConfig.value !== undefined) {
+        console.log("using local config:", localConfig.value);
+        result.value = JSON.parse(localStorage.getItem("config"));
+      } else {
+        console.log("no local config - fetching from Storyblok");
 
-      this.config = useLocalStorage("config", story.value.content);
-      console.log("this.config", this.config);
-      return story.value.content;
+        await useAsyncStoryblok("config", {
+          api: {
+            version: "draft",
+          },
+        }).then(({ story }) => {
+          console.log("fetched config from Storyblok:", story?.value?.content);
+          useLocalStorage("config", story.value.content);
+          result.value = story.value.content;
+        });
+      }
 
-      // this.config = story.content.value;
+      return result;
     },
   },
 });

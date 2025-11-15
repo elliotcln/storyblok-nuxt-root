@@ -1,14 +1,14 @@
 <template>
   <SkipLinks />
   <AppHeader :config="config" />
-  <main id="main">
+  <!-- <main id="main">
     <NuxtPage
       :class="[
         'page',
         route.path === '/' ? 'page--index' : 'page--' + route.path.substring(1),
       ]"
     />
-  </main>
+  </main> -->
   <AppFooter :config="config" />
 </template>
 
@@ -19,25 +19,29 @@ const route = useRoute();
 const configStore = useConfigStore();
 
 const config = ref();
-const localConfig = useLocalStorage("config").value;
-console.log("configLocal", localConfig);
+
+// configStore.fetchConfig().then((result) => {
+//   console.log("result", result);
+//   config.value = result;
+
+//   console.log("config.value", config);
+// });
 
 onMounted(async () => {
-  if (localConfig === undefined) {
-    await configStore.fetchConfig().then((result) => {
-      config.value = result;
-      console.log("result", result);
-    });
-  } else {
-    config.value = JSON.parse(localConfig);
-  }
+  await configStore.fetchConfig().then((result) => {
+    console.log("result", result.value);
+    configStore.setConfig(result.value.content);
+    config.value = result.value;
+
+    console.log("config.value", config.value);
+  });
 });
 
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk
-      ? `${titleChunk} - ${config?.value?.app_title}`
-      : config?.value?.app_title;
+      ? `${titleChunk} - ${config?.app_title}`
+      : config?.app_title;
   },
 });
 </script>
