@@ -23,9 +23,18 @@
           <li v-for="item in items">
             <template v-if="!item.children || item.children.length === 0">
               <Item as-child>
-                <NuxtLink :to="item.to">
+                <NuxtLink
+                  :to="
+                    item.link.linktype === 'story'
+                      ? item.link.story.url
+                      : item.link.url
+                  "
+                  :target="item.link.target"
+                >
                   <ItemContent>
-                    <ItemHeader>{{ item.label }}</ItemHeader>
+                    <ItemHeader>{{
+                      item.label ? item.label : item.link.story.name
+                    }}</ItemHeader>
                   </ItemContent>
                   <ItemActions>
                     <ChevronRight class="h-4 w-4" />
@@ -41,7 +50,9 @@
                   >
                     <Item class="p-4 w-full">
                       <ItemContent>
-                        <ItemHeader>{{ item.label }}</ItemHeader>
+                        <ItemHeader>{{
+                          item.label ? item.label : item.link.story.name
+                        }}</ItemHeader>
                       </ItemContent>
                       <ItemActions>
                         <Plus v-if="!isOpen" class="h-4 w-4" />
@@ -54,9 +65,19 @@
                   <ul>
                     <li v-for="child in item.children">
                       <Item as-child>
-                        <NuxtLink :to="child.to" class="text-xs ml-4">
+                        <NuxtLink
+                          :to="
+                            child.link.linktype === 'story'
+                              ? child.link.story.url
+                              : child.link.url
+                          "
+                          :target="child.link.target"
+                          class="text-xs ml-4"
+                        >
                           <ItemContent>
-                            <ItemHeader>{{ child.label }}</ItemHeader>
+                            <ItemHeader>{{
+                              child.label ? child.label : child.link.story.name
+                            }}</ItemHeader>
                           </ItemContent>
                           <ItemActions>
                             <ChevronRight class="h-4 w-4" />
