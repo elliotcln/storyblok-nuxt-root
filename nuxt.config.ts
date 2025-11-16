@@ -29,6 +29,17 @@ export default defineNuxtConfig({
     },
   },
 
+  scripts: {
+    registry: {
+      googleAnalytics: {
+        id: "G-0DZR46SWDK",
+      },
+      googleTagManager: {
+        id: "GTM-TSRND95",
+      },
+    },
+  },
+
   // devServer: {
   //   https: true,
   // },
