@@ -1,0 +1,1 @@
+import{n as a,m as s,c as n,F as c,q as i,r as b,o as e,i as m}from"./C22Z8H2K.js";const d={__name:"PageDefault",props:{blok:Object},setup(o){return(k,u)=>{const l=b("StoryblokComponent"),r=s("editable");return a((e(),n("div",null,[(e(!0),n(c,null,i(o.blok.body,t=>(e(),m(l,{key:t._uid,blok:t},null,8,["blok"]))),128))])),[[r,o.blok]])}}};export{d as default};
