@@ -15,11 +15,11 @@
       </template>
 
       <!-- Desktop Navigation -->
-      <NavigationDesktop :items="navItems" />
+      <NavigationDesktop v-if="config?.nav_main" :items="config.nav_main" />
       <!--  -->
 
       <div class="header-content--right flex gap-2">
-        <NavigationMobile :items="navItems" />
+        <!-- <NavigationMobile v-if="config.nav_main" :items="navItems" /> -->
 
         <Button as-child class="hidden xl:inline-flex"
           ><NuxtLink to="/">Post an offer</NuxtLink></Button
@@ -39,23 +39,23 @@ defineProps({
   config: Object,
 });
 
-const navItems = [
-  {
-    label: "Paid offers",
-    to: "/",
-    // children: [],
-  },
-  {
-    label: "Volunteer offers",
-    to: "/volunteer",
-    // children: [],
-  },
-  {
-    label: "About HH",
-    to: "/about",
-    // children: [],
-  },
-];
+// const navItems = [
+//   {
+//     label: "Paid offers",
+//     to: "/",
+//     // children: [],
+//   },
+//   {
+//     label: "Volunteer offers",
+//     to: "/volunteer",
+//     // children: [],
+//   },
+//   {
+//     label: "About HH",
+//     to: "/about",
+//     // children: [],
+//   },
+// ];
 </script>
 
 <style lang="scss" scoped></style>

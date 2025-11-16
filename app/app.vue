@@ -18,14 +18,12 @@ const configStore = useConfigStore();
 
 const config = ref();
 
-onMounted(async () => {
-  await configStore.fetchConfig().then((result) => {
-    console.log("result", result.value);
-    configStore.setConfig(result.value.content);
-    config.value = result.value;
+await configStore.fetchConfig().then((result) => {
+  console.log("result", result?.value);
+  configStore.setConfig(result?.value?.content);
+  config.value = result?.value;
 
-    console.log("config.value", config.value);
-  });
+  console.log("config.value", config?.value);
 });
 
 useHead({
