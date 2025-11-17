@@ -5,7 +5,9 @@
     <NuxtPage
       :class="[
         'page',
-        route.path === '/' ? 'page--index' : 'page--' + route.path.substring(1),
+        route?.path === '/'
+          ? 'page--index'
+          : 'page--' + route.path.substring(1),
       ]"
     />
   </main>

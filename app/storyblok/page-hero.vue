@@ -1,20 +1,19 @@
 <template>
-  <section
-    class="page-hero py-12 pt-20 lg:pt-26 lg:pb-16 xl:pt-40 xl:pb-24"
-    v-editable="blok"
-  >
+  <section class="page-hero py-32 sm:py-48 lg:py-56" v-editable="blok">
     <div class="container">
-      <div class="grid gap-4 xl:gap-8">
-        <div>
+      <div class="mx-auto max-w-2xl">
+        <div class="text-center">
           <h1
-            class="text-3xl leading-normal font-semibold lg:text-4xl xl:text-5xl"
+            class="text-5xl font-semibold tracking-tight text-balance sm:text-7xl"
           >
             {{ blok.headline }}
           </h1>
-          <p class="text-accent-foreground/50">{{ blok.description }}</p>
+          <p class="text-primary/50 mt-8 text-lg text-pretty sm:text-xl/8">
+            {{ blok.description }}
+          </p>
         </div>
 
-        <div class="flex gap-2">
+        <div class="mt-10 flex flex-wrap justify-center gap-x-4">
           <StoryblokComponent
             v-for="currentBlok in blok.buttons"
             :key="currentBlok._uid"

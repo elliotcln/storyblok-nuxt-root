@@ -7,6 +7,7 @@
       :size="blok.size"
       as-child
       v-editable="blok"
+      :class="[{ 'w-full': blok.block }]"
     >
       <NuxtLink
         :to="
@@ -26,7 +27,11 @@
           <Icon :name="blok.icon.icon" />
         </template>
         <template v-else-if="blok.icon">
-          <Icon v-if="blok.icon" :name="blok.icon.icon" class="mr-2 inline" />
+          <Icon
+            v-if="blok.icon.icon"
+            :name="blok.icon.icon"
+            class="mr-2 inline"
+          />
           {{ blok.label ? blok.label : blok.link.story.name }}
         </template>
         <template v-else>

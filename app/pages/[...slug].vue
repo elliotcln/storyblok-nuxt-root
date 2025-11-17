@@ -11,7 +11,6 @@ const { story } = await useAsyncStoryblok(slug === "" ? "index" : slug, {
   api: {
     version: "draft",
     resolve_links: "url",
-    // cv: Date.now(),
   },
 });
 

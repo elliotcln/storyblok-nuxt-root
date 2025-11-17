@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/scripts",
     "@nuxt/eslint",
+    "@nuxt/image",
   ],
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss(), mkcert()] },
