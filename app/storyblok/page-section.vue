@@ -8,15 +8,36 @@
       :class="[
         { container: !blok.is_fullwidth },
         'section__content grid gap-6 lg:gap-8',
+        { 'lg:grid-cols-2': blok.orientation === 'horizontal' },
       ]"
     >
-      <div v-if="blok.title" class="section__head text-center">
+      <div
+        v-if="blok.title"
+        :class="[
+          'section__head text-center',
+          { 'lg:max-w-lg lg:text-left': blok.orientation === 'horizontal' },
+          {
+            'lg:col-start-2': blok.is_reversed,
+          },
+        ]"
+      >
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
           {{ blok.title }}
         </h2>
         <p v-if="blok.description" class="text-primary/80 mt-4 text-lg">
           {{ blok.description }}
         </p>
+        <div
+          v-if="blok.actions.length > 0 && blok.orientation === 'horizontal'"
+        >
+          <div class="section__actions mt-6 flex flex-wrap gap-4 max-lg:hidden">
+            <StoryblokComponent
+              v-for="(currentBlok, index) in blok.actions"
+              :key="index"
+              :blok="currentBlok"
+            />
+          </div>
+        </div>
       </div>
       <div>
         <StoryblokComponent
@@ -26,7 +47,12 @@
         />
       </div>
       <div v-if="blok.actions.length > 0">
-        <div class="section__actions flex flex-wrap justify-center gap-4">
+        <div
+          :class="[
+            'section__actions flex flex-wrap justify-center gap-4',
+            { 'lg:hidden': blok.orientation === 'horizontal' },
+          ]"
+        >
           <StoryblokComponent
             v-for="(currentBlok, index) in blok.actions"
             :key="index"
