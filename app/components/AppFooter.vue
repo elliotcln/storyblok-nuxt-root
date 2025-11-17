@@ -1,7 +1,7 @@
 <template>
-  <footer role="contentinfo" class="header py-4 border-t border-accent">
+  <footer role="contentinfo" class="header border-accent border-t py-4">
     <div
-      class="container flex flex-col gap-2 lg:flex-row-reverse lg:justify-between items-center"
+      class="container flex flex-col items-center gap-2 lg:flex-row-reverse lg:justify-between"
     >
       <div class="flex">
         <Button v-if="config?.facebook.url" as-child size="icon" variant="ghost"
@@ -18,7 +18,7 @@
         ></Button>
       </div>
       <p
-        class="text-balance text-center md:text-left leading-loose text-sm text-muted-foreground"
+        class="text-muted-foreground text-center text-sm leading-loose text-balance md:text-left"
       >
         Built with
         <a href="https://shadcn-vue.com/" target="_blank">shadcn</a> and

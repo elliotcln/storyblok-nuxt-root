@@ -1,7 +1,7 @@
 <template>
-  <header role="banner" class="header px-4 lg:px-8 py-2 border-b border-accent">
-    <div class="header-content flex w-full h-full items-center justify-between">
-      <Skeleton v-if="!config" class="w-[250px] h-6" />
+  <header role="banner" class="header border-accent border-b px-4 py-2 lg:px-8">
+    <div class="header-content flex h-full w-full items-center justify-between">
+      <Skeleton v-if="!config" class="h-6 w-[250px]" />
       <template v-else>
         <NuxtLink
           v-if="!config.app_logo.filename"

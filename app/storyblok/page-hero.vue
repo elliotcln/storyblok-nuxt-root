@@ -1,13 +1,13 @@
 <template>
   <section
-    class="page-hero py-12 pt-20 lg:pb-16 lg:pt-26 xl:pb-24 xl:pt-40"
+    class="page-hero py-12 pt-20 lg:pt-26 lg:pb-16 xl:pt-40 xl:pb-24"
     v-editable="blok"
   >
     <div class="container">
       <div class="grid gap-4 xl:gap-8">
         <div>
           <h1
-            class="text-3xl lg:text-4xl xl:text-5xl font-semibold leading-normal"
+            class="text-3xl leading-normal font-semibold lg:text-4xl xl:text-5xl"
           >
             {{ blok.headline }}
           </h1>

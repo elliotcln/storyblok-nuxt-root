@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
     "@nuxt/icon",
     "@nuxt/scripts",
+    "@nuxt/eslint",
   ],
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss(), mkcert()] },

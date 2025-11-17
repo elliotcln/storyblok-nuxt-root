@@ -46,9 +46,9 @@
               <Collapsible v-model:open="isOpen">
                 <CollapsibleTrigger as-child>
                   <Button
-                    class="w-full justify-between p-0 h-auto cursor-pointer bg-transparent hover:bg-accent/50 text-primary font-normal"
+                    class="hover:bg-accent/50 text-primary h-auto w-full cursor-pointer justify-between bg-transparent p-0 font-normal"
                   >
-                    <Item class="p-4 w-full">
+                    <Item class="w-full p-4">
                       <ItemContent>
                         <ItemHeader>{{
                           item.label ? item.label : item.link.story.name
@@ -72,7 +72,7 @@
                               : child.link.url
                           "
                           :target="child.link.target"
-                          class="text-xs ml-4"
+                          class="ml-4 text-xs"
                         >
                           <ItemContent>
                             <ItemHeader>{{

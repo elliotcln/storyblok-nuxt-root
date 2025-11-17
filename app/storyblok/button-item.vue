@@ -26,7 +26,7 @@
           <Icon :name="blok.icon.icon" />
         </template>
         <template v-else-if="blok.icon">
-          <Icon v-if="blok.icon" :name="blok.icon.icon" class="inline mr-2" />
+          <Icon v-if="blok.icon" :name="blok.icon.icon" class="mr-2 inline" />
           {{ blok.label ? blok.label : blok.link.story.name }}
         </template>
         <template v-else>
