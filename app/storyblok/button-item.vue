@@ -28,11 +28,14 @@
         </template>
         <template v-else-if="blok.icon">
           <Icon
-            v-if="blok.icon.icon"
+            v-if="blok.icon.icon && !blok.trailing_icon"
             :name="blok.icon.icon"
-            class="mr-2 inline"
           />
           {{ blok.label ? blok.label : blok.link.story.name }}
+          <Icon
+            v-if="blok.icon.icon && blok.trailing_icon"
+            :name="blok.icon.icon"
+          />
         </template>
         <template v-else>
           {{ blok.label ? blok.label : blok.link.story.name }}
