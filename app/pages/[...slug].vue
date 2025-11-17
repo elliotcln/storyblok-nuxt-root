@@ -16,9 +16,30 @@ const { story } = await useAsyncStoryblok(slug === "" ? "index" : slug, {
 });
 
 useSeoMeta({
-  title: () => story?.value?.content.seo[0].title,
-  description: () => story?.value?.content.seo[0].description,
-  ogImage: () => story?.value?.content.seo[0].image.filename,
+  title: () =>
+    story?.value?.content.seo[0].title
+      ? story?.value?.content.seo[0].title
+      : null,
+  description: () =>
+    story?.value?.content.seo[0].description
+      ? story?.value?.content.seo[0].description
+      : null,
+  ogImage: () =>
+    story?.value?.content.seo[0].og_image.filename
+      ? story?.value?.content.seo[0].og_image.filename
+      : null,
+  twitterTitle: () =>
+    story?.value?.content.seo[0].x_title
+      ? story?.value?.content.seo[0].x_title
+      : null,
+  twitterDescription: () =>
+    story?.value?.content.seo[0].x_description
+      ? story?.value?.content.seo[0].x_description
+      : null,
+  twitterImage: () =>
+    story?.value?.content.seo[0].x_image.filename
+      ? story?.value?.content.seo[0].x_image.filename
+      : null,
 });
 </script>
 
