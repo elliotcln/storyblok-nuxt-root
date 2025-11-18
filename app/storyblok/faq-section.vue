@@ -22,8 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import type { FaqSection } from "~/types/storyblok-components";
-
 defineProps<{ blok: FaqSection }>();
 </script>
 

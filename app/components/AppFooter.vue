@@ -36,7 +36,6 @@
 
 <script setup lang="ts">
 import { Instagram, Facebook } from "lucide-vue-next";
-import type { AppConfig } from "~/types/storyblok-components";
 
 defineProps<{
   config: AppConfig;

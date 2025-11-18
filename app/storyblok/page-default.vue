@@ -9,8 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import type { PageDefault } from "~/types/storyblok-components";
-
 defineProps<{ blok: PageDefault }>();
 </script>
 

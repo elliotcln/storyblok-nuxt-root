@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import type { CardItem } from "~/types/storyblok-components";
 defineProps<{ blok: CardItem }>();
 </script>
 

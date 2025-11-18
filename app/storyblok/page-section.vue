@@ -65,8 +65,6 @@
 </template>
 
 <script setup lang="ts">
-import type { PageSection } from "~/types/storyblok-components";
-
 const { blok } = defineProps<{ blok: PageSection }>();
 
 const sectionBackgroundClass = ref(

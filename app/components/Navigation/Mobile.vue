@@ -108,7 +108,6 @@
 
 <script setup lang="ts">
 import { LogIn, Menu, ChevronRight, Plus, Minus } from "lucide-vue-next";
-import type { NavItem } from "~/types/storyblok-components";
 
 defineProps<{
   items: NavItem[];

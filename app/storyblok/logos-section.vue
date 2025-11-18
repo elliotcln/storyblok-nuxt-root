@@ -26,8 +26,6 @@
 </template>
 
 <script setup lang="ts">
-import type { LogosSection } from "~/types/storyblok-components";
-
 defineProps<{ blok: LogosSection }>();
 </script>
 
