@@ -2,7 +2,7 @@
   <section
     v-editable="blok"
     :id="`section-` + blok._uid"
-    :class="['section py-8 md:py-12 lg:py-16 xl:py-20', sectionBackgroundClass]"
+    :class="['section py-12 lg:py-16 xl:py-20', sectionBackgroundClass]"
   >
     <div
       :class="[
@@ -24,7 +24,7 @@
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
           {{ blok.title }}
         </h2>
-        <p v-if="blok.description" class="text-primary/80 mt-4 text-lg">
+        <p v-if="blok.description" class="mt-4 text-lg opacity-60 sm:text-xl/8">
           {{ blok.description }}
         </p>
         <div

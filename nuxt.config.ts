@@ -16,7 +16,6 @@ export default defineNuxtConfig({
   ],
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss(), mkcert()] },
-  // ssr: false,
 
   shadcn: {
     prefix: "",
@@ -42,7 +41,11 @@ export default defineNuxtConfig({
     },
   },
 
-  // devServer: {
-  //   https: true,
-  // },
+  devServer: {
+    host: "nuxt-storyblok-starter.local",
+    https: {
+      key: "./key.pem",
+      cert: "./cert.pem",
+    },
+  },
 });

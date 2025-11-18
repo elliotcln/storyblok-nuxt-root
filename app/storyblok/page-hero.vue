@@ -8,7 +8,7 @@
           >
             {{ blok.headline }}
           </h1>
-          <p class="text-primary/50 mt-8 text-lg text-pretty sm:text-xl/8">
+          <p class="mt-8 text-lg text-pretty opacity-60 sm:text-xl/8">
             {{ blok.description }}
           </p>
         </div>
