@@ -26,8 +26,8 @@
                 <NuxtLink
                   :to="
                     item.link.linktype === 'story'
-                      ? item.link.story.url
-                      : item.link.url
+                      ? '/' + item.link.story.url
+                      : '/' + item.link.url
                   "
                   :target="item.link.target"
                 >
@@ -68,8 +68,8 @@
                         <NuxtLink
                           :to="
                             child.link.linktype === 'story'
-                              ? child.link.story.url
-                              : child.link.url
+                              ? '/' + child.link.story.url
+                              : '/' + child.link.url
                           "
                           :target="child.link.target"
                           class="ml-4 text-xs"

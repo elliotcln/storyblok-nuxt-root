@@ -11,8 +11,8 @@
             <NuxtLink
               :to="
                 item.link.linktype === 'story'
-                  ? item.link.story.url
-                  : item.link.url
+                  ? '/' + item.link.story.url
+                  : '/' + item.link.url
               "
               :target="item.link.target"
               >{{ item.label ? item.label : item.link.story.name }}</NuxtLink
@@ -32,8 +32,8 @@
                   <NuxtLink
                     :to="
                       child.link.linktype === 'story'
-                        ? child.link.story.url
-                        : child.link.url
+                        ? '/' + child.link.story.url
+                        : '/' + child.link.url
                     "
                     :target="child.link.target"
                     class="hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 text-sm leading-none no-underline transition-colors outline-none select-none"

@@ -40,7 +40,8 @@
     "vaul-vue": "^0.4.1",
     "vite-plugin-mkcert": "^1.17.9",
     "vue": "^3.5.22",
-    "vue-router": "^4.6.3"
+    "vue-router": "^4.6.3",
+    "vue3-runtime-template": "^1.0.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",

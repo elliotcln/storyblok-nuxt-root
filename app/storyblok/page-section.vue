@@ -8,13 +8,14 @@
       :class="[
         { container: !blok.is_fullwidth },
         'section__content grid gap-6 lg:gap-8',
+        { 'items-center': blok.content_centered },
         { 'lg:grid-cols-2': blok.orientation === 'horizontal' },
       ]"
     >
       <div
         v-if="blok.title"
         :class="[
-          'section__head text-center',
+          'section__head text-center text-balance',
           { 'lg:max-w-lg lg:text-left': blok.orientation === 'horizontal' },
           {
             'lg:col-start-2': blok.is_reversed,
@@ -39,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class="flex flex-col gap-4">
         <StoryblokComponent
           v-for="(currentBlok, index) in blok.body"
           :key="index"

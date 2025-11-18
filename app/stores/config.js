@@ -1,4 +1,4 @@
-import { get, useLocalStorage, useStorage } from "@vueuse/core";
+import { useLocalStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 
 export const useConfigStore = defineStore("config", {
@@ -29,6 +29,7 @@ export const useConfigStore = defineStore("config", {
         console.log("fetched config from Storyblok:", story?.value?.content);
         useLocalStorage("config", story?.value?.content);
         result.value = story?.value?.content;
+        this.setConfig(story?.value?.content);
       });
 
       // if (localConfig.value !== undefined) {

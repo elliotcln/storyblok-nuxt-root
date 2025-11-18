@@ -6,10 +6,9 @@
 </template>
 
 <script setup lang="ts">
-const { slug } = useRoute().params;
-const slugParam = Array.isArray(slug) ? slug.join("/") : slug || "index";
+const { path } = useRoute();
 const { story } = await useAsyncStoryblok(
-  slugParam === "" ? "index" : slugParam,
+  path === "" ? "/pages" : "/pages/" + path,
   {
     deep: true,
     api: {

@@ -1,7 +1,13 @@
 <template>
   <div
     v-editable="blok"
-    :class="['grid md:grid-cols-2', columnsClass, blok.gap]"
+    :class="[
+      'grid max-lg:auto-cols-auto',
+      columnsClass,
+      blok.justify_items,
+      blok.align_items,
+      blok.gap,
+    ]"
   >
     <StoryblokComponent
       v-for="(currentBlok, index) in blok.body"
@@ -15,6 +21,12 @@
 const { blok } = defineProps<{ blok: GridSection }>();
 
 const columnsClass = ref("lg:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4");
+const justifyClass = ref(
+  "lg:justify-item-center lg:justify-items-start lg:justify-items-end",
+);
+const alignClass = ref(
+  "lg:align-item-center lg:align-items-start lg:align-items-end",
+);
 
 watchEffect(() => {
   columnsClass.value = blok.cols
