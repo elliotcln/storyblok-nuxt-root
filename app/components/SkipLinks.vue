@@ -14,7 +14,7 @@
   </nav>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const links = [
   {
     label: "Go to main navigation",

@@ -64,21 +64,19 @@
   </section>
 </template>
 
-<script setup>
-const { blok } = defineProps({ blok: Object });
+<script setup lang="ts">
+import type { PageSection } from "~/types/storyblok-components";
 
-const sectionBackgroundClass = ref([
-  "bg-primary/50",
-  "bg-secondary/50",
-  "bg-accent/50",
-  "bg-muted/50",
-  "bg-destructive/50",
-]);
+const { blok } = defineProps<{ blok: PageSection }>();
+
+const sectionBackgroundClass = ref(
+  "bg-primary/50 bg-secondary/50 bg-accent/50 bg-muted/50 bg-destructive/50",
+);
 
 watchEffect(() => {
   sectionBackgroundClass.value = blok.background
     ? "bg-" + blok.background + "/50"
-    : null;
+    : "";
 });
 </script>
 

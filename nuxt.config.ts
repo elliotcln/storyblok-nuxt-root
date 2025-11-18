@@ -16,6 +16,7 @@ export default defineNuxtConfig({
   ],
   css: ["~/assets/css/app.css"],
   vite: { plugins: [tailwindcss(), mkcert()] },
+  imports: { dirs: ["./types/**/*.d.ts"] },
 
   shadcn: {
     prefix: "",

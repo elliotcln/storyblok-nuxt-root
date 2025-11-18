@@ -25,8 +25,10 @@
   </section>
 </template>
 
-<script setup>
-defineProps({ blok: Object });
+<script setup lang="ts">
+import type { PageHero } from "~/types/storyblok-components";
+
+defineProps<{ blok: PageHero }>();
 </script>
 
 <style lang="scss" scoped></style>

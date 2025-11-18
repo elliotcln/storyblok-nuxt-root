@@ -32,12 +32,13 @@
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { AppConfig } from "~/types/storyblok-components";
 import { LogIn } from "lucide-vue-next";
 
-defineProps({
-  config: Object,
-});
+defineProps<{
+  config: AppConfig;
+}>();
 </script>
 
 <style lang="scss" scoped></style>

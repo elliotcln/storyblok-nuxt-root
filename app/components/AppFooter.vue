@@ -34,12 +34,13 @@
   </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Instagram, Facebook } from "lucide-vue-next";
+import type { AppConfig } from "~/types/storyblok-components";
 
-defineProps({
-  config: Object,
-});
+defineProps<{
+  config: AppConfig;
+}>();
 const footerLinks = [
   { label: "Privacy Policy", to: "/privacy" },
   { label: "Terms of Service", to: "/terms" },

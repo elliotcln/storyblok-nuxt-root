@@ -50,8 +50,10 @@
   </template>
 </template>
 
-<script setup>
-defineProps({ blok: Object });
+<script setup lang="ts">
+import type { ButtonItem } from "~/types/storyblok-components";
+
+defineProps<{ blok: ButtonItem }>();
 </script>
 
 <style lang="scss" scoped></style>

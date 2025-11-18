@@ -51,12 +51,13 @@
   </NavigationMenu>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import type { NavItem } from "~/types/storyblok-components";
 
-defineProps({
-  items: Object,
-});
+defineProps<{
+  items: NavItem[];
+}>();
 </script>
 
 <style lang="scss" scoped></style>

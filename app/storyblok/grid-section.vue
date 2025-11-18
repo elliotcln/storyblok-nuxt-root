@@ -11,14 +11,11 @@
   </div>
 </template>
 
-<script setup>
-const { blok } = defineProps({ blok: Object });
+<script setup lang="ts">
+import type { GridSection } from "@/types/storyblok-components";
+const { blok } = defineProps<{ blok: GridSection }>();
 
-const columnsClass = ref([
-  "lg:grid-cols-2",
-  "lg:grid-cols-3",
-  "lg:grid-cols-4",
-]);
+const columnsClass = ref("lg:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4");
 
 watchEffect(() => {
   columnsClass.value = blok.cols

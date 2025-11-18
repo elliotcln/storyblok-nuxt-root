@@ -8,7 +8,7 @@
   >
     <AccordionItem
       v-for="(question, index) in blok.questions"
-      :key="question.uid"
+      :key="String(question.uid)"
       :value="index + '-faq'"
     >
       <AccordionTrigger class="text-md cursor-pointer">{{
@@ -21,8 +21,10 @@
   </Accordion>
 </template>
 
-<script setup>
-defineProps({ blok: Object });
+<script setup lang="ts">
+import type { FaqSection } from "~/types/storyblok-components";
+
+defineProps<{ blok: FaqSection }>();
 </script>
 
 <style lang="scss" scoped></style>

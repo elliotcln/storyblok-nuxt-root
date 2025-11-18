@@ -106,12 +106,13 @@
   <!-- -->
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { LogIn, Menu, ChevronRight, Plus, Minus } from "lucide-vue-next";
+import type { NavItem } from "~/types/storyblok-components";
 
-defineProps({
-  items: Object,
-});
+defineProps<{
+  items: NavItem[];
+}>();
 
 const isOpen = ref(false);
 </script>

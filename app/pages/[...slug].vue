@@ -5,18 +5,22 @@
   </template> -->
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { slug } = useRoute().params;
-const { story } = await useAsyncStoryblok(slug === "" ? "index" : slug, {
-  deep: true,
-  api: {
-    version: "draft",
-    resolve_links: "url",
+const slugParam = Array.isArray(slug) ? slug.join("/") : slug || "index";
+const { story } = await useAsyncStoryblok(
+  slugParam === "" ? "index" : slugParam,
+  {
+    deep: true,
+    api: {
+      version: "draft",
+      resolve_links: "url",
+    },
+    bridge: {
+      preventClicks: true,
+    },
   },
-  bridge: {
-    preventClicks: true,
-  },
-});
+);
 
 useSeoMeta({
   title: () =>
