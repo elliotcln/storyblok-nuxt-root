@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" v-if="blok" class="prose">
+  <div v-editable="blok" v-if="blok" class="prose w-full max-w-none">
     <StoryblokRichText v-if="blok.body" :doc="blok.body" />
   </div>
 </template>

@@ -2,23 +2,29 @@
   <section
     v-editable="blok"
     :id="`section-` + blok._uid"
-    :class="['section py-12 lg:py-16 xl:py-20', sectionBackgroundClass]"
+    :class="[
+      'section py-12 lg:py-16 xl:py-20',
+      sectionBackgroundClass,
+      blok.has_border ? ['border-secondary', blok.has_border] : null,
+    ]"
   >
     <div
       :class="[
         { container: !blok.is_fullwidth },
         'section__content grid gap-6 lg:gap-8',
-        { 'items-center': blok.content_centered },
         { 'lg:grid-cols-2': blok.orientation === 'horizontal' },
+        blok.vertical_alignment
+          ? { ['items-' + blok.vertical_alignment]: true }
+          : null,
       ]"
     >
       <div
         v-if="blok.title"
         :class="[
           'section__head text-center text-balance',
-          { 'lg:max-w-lg lg:text-left': blok.orientation === 'horizontal' },
+          { 'text-left': blok.orientation === 'horizontal' },
           {
-            'lg:col-start-2': blok.is_reversed,
+            'lg:col-start-2 lg:row-start-1': blok.is_reversed,
           },
         ]"
       >
@@ -27,10 +33,19 @@
         </h2>
         <p
           v-if="blok.description"
-          class="mx-auto mt-4 max-w-3xl text-lg opacity-60 sm:text-xl/8"
+          :class="[
+            'mt-4 text-lg text-balance opacity-60 sm:text-xl/8 lg:max-w-3xl',
+            { 'mx-auto': blok.orientation === 'vertical' },
+          ]"
         >
           {{ blok.description }}
         </p>
+        <!-- <p class="mt-8" v-if="blok.content">
+          {{ blok.content }}
+        </p> -->
+        <div class="mt-8" v-if="blok.content">
+          <StoryblokRichText :doc="blok.content" />
+        </div>
         <div
           v-if="blok.actions.length > 0 && blok.orientation === 'horizontal'"
         >
@@ -43,11 +58,25 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col gap-4">
+      <div
+        :class="[
+          'flex flex-col gap-4',
+
+          {
+            'lg:col-start-1 lg:row-start-1': blok.is_reversed,
+          },
+        ]"
+      >
+        <NuxtImg
+          v-if="blok.media?.filename"
+          :src="blok.media.filename"
+          class="rounded-lg"
+        />
         <StoryblokComponent
           v-for="(currentBlok, index) in blok.body"
           :key="index"
           :blok="currentBlok"
+          class="mt-4"
         />
       </div>
       <div v-if="blok.actions.length > 0">

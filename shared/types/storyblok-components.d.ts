@@ -2,13 +2,14 @@
 // DO NOT MODIFY THIS FILE BY HAND.
 import type { StoryblokRichtext, StoryblokMultiasset, StoryblokMultilink, StoryblokAsset } from '../storyblok.d.ts';
 export interface AppConfig {
+  nav_main?: NavItem[];
+  nav_actions?: ButtonItem[];
+  nav_footer?: NavItem[];
   facebook?: Exclude<StoryblokMultilink, {linktype?: "email"} | {linktype?: "asset"}>;
   instagram?: Exclude<StoryblokMultilink, {linktype?: "email"} | {linktype?: "asset"}>;
   app_title: string;
   app_logo?: StoryblokAsset;
   seo?: Metatags[];
-  nav_main?: NavItem[];
-  nav_footer?: NavItem[];
   component: "app-config";
   _uid: string;
   [k: string]: unknown;
@@ -62,8 +63,12 @@ export interface FaqSection {
 }
 
 export interface GridItem {
-  col_span?: string;
-  row_span?: string;
+  medium?: unknown;
+  col_span_md?: string;
+  row_span_md?: string;
+  large?: unknown;
+  col_span_lg?: string;
+  row_span_lg?: string;
   body?: (
     | AppConfig
     | ButtonItem
@@ -87,10 +92,19 @@ export interface GridItem {
 }
 
 export interface GridSection {
-  cols?: string;
   gap?: "" | "gap-4" | "gap-6" | "gap-8";
-  align_items?: number | string;
-  justify_items?: number | string;
+  medium?: unknown;
+  cols_md?: string;
+  justify_items_md?: number | string;
+  justify_content_md?: number | string;
+  align_items_md?: number | string;
+  align_content_md?: number | string;
+  large?: unknown;
+  cols_lg?: string;
+  justify_items_lg?: number | string;
+  justify_content_lg?: number | string;
+  align_items_lg?: number | string;
+  align_content_lg?: number | string;
   body?: (
     | ButtonItem
     | CardItem
@@ -103,8 +117,6 @@ export interface GridSection {
     | GridSection
     | LogosSection
   )[];
-  justify_content?: number | string;
-  align_content?: number | string;
   component: "grid-section";
   _uid: string;
   [k: string]: unknown;
@@ -185,15 +197,17 @@ export interface PageHero {
 }
 
 export interface PageSection {
-  is_fullwidth?: boolean;
   orientation?: "" | "vertical" | "horizontal";
+  vertical_alignment?: "" | "start" | "center" | "end";
   background?: number | string;
+  is_reversed?: boolean;
   title?: string;
   description?: string;
-  body: (CustomSection | FaqSection | GridSection | LogosSection)[];
+  content?: StoryblokRichtext;
+  media?: StoryblokAsset;
+  body?: (CustomSection | FaqSection | GridSection | LogosSection)[];
   actions?: ButtonItem[];
-  is_reversed?: boolean;
-  content_centered?: boolean;
+  has_border?: ("" | "border-t" | "border-b")[];
   component: "page-section";
   _uid: string;
   [k: string]: unknown;
