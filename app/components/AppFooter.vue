@@ -6,7 +6,7 @@
       <div class="flex">
         <Button v-if="config?.facebook.url" as-child size="icon" variant="ghost"
           ><a :href="config.facebook.url" :target="config.facebook.target"
-            ><Facebook /></a
+            ><Icon name="hugeicons:facebook-01" /></a
         ></Button>
         <Button
           v-if="config?.instagram.url"
@@ -14,7 +14,7 @@
           size="icon"
           variant="ghost"
           ><a :href="config.instagram.url" :target="config.instagram.target"
-            ><Instagram /></a
+            ><Icon name="hugeicons:instagram" /></a
         ></Button>
       </div>
       <p

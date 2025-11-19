@@ -1,15 +1,14 @@
 <template>
   <SkipLinks />
   <AppHeader :config="config" />
-  <main id="main">
-    <NuxtPage
-      :class="[
-        'page',
-        route?.path === '/'
-          ? 'page--index'
-          : 'page--' + route.path.substring(1),
-      ]"
-    />
+  <main
+    id="main"
+    :class="[
+      'page',
+      route?.path === '/' ? 'page--index' : 'page--' + route.path.substring(1),
+    ]"
+  >
+    <NuxtPage />
   </main>
   <AppFooter :config="config" />
 </template>

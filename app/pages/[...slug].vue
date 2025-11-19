@@ -1,7 +1,7 @@
 <template>
   <StoryblokComponent v-if="story" :blok="story.content" />
   <!-- <template v-if="story">
-    <pre><code>{{ story.content }}</code></pre>
+    <pre><code>{{ story }}</code></pre>
   </template> -->
 </template>
 

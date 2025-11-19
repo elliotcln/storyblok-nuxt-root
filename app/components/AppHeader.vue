@@ -25,7 +25,9 @@
           ><NuxtLink to="/">Post an offer</NuxtLink></Button
         >
         <Button as-child class="hidden xl:inline-flex" variant="secondary"
-          ><NuxtLink to="/signin"><LogIn /> Sign In</NuxtLink></Button
+          ><NuxtLink to="/signin"
+            ><Icon name="hugeicons:login-01" /> Sign In</NuxtLink
+          ></Button
         >
       </div>
     </div>

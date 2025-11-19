@@ -1,5 +1,4 @@
 <template>
-  <!-- Mobile Navigation -->
   <Drawer>
     <DrawerTrigger as-child>
       <Button
@@ -7,8 +6,9 @@
         variant="outline"
         class="xl:hidden"
         aria-label="toggle mobile navigation"
-        ><Menu
-      /></Button>
+      >
+        <Icon name="hugeicons:menu-two-line" />
+      </Button>
     </DrawerTrigger>
     <DrawerContent>
       <DrawerHeader class="sr-only">
@@ -26,8 +26,8 @@
                 <NuxtLink
                   :to="
                     item.link.linktype === 'story'
-                      ? '/' + item.link.story.url
-                      : '/' + item.link.url
+                      ? item.link.story.url
+                      : item.link.url
                   "
                   :target="item.link.target"
                 >
@@ -37,7 +37,7 @@
                     }}</ItemHeader>
                   </ItemContent>
                   <ItemActions>
-                    <ChevronRight class="h-4 w-4" />
+                    <Icon name="hugeicons:arrow-right-01" />
                   </ItemActions>
                 </NuxtLink>
               </Item>
@@ -55,8 +55,8 @@
                         }}</ItemHeader>
                       </ItemContent>
                       <ItemActions>
-                        <Plus v-if="!isOpen" class="h-4 w-4" />
-                        <Minus v-if="isOpen" class="h-4 w-4" />
+                        <Icon name="hugeicons:plus-sign" v-if="!isOpen" />
+                        <Icon name="hugeicons:minus-sign" v-if="isOpen" />
                       </ItemActions>
                     </Item>
                   </Button>
@@ -68,8 +68,8 @@
                         <NuxtLink
                           :to="
                             child.link.linktype === 'story'
-                              ? '/' + child.link.story.url
-                              : '/' + child.link.url
+                              ? child.link.story.url
+                              : child.link.url
                           "
                           :target="child.link.target"
                           class="ml-4 text-xs"
@@ -80,7 +80,7 @@
                             }}</ItemHeader>
                           </ItemContent>
                           <ItemActions>
-                            <ChevronRight class="h-4 w-4" />
+                            <Icon name="hugeicons:arrow-right-01" />
                           </ItemActions>
                         </NuxtLink>
                       </Item>
@@ -91,19 +91,19 @@
             </template>
           </li>
         </ul>
-        <Separator class="my-4" />
-        <div class="flex flex-col gap-2">
-          <Button as-child class="w-full"
-            ><NuxtLink to="/">Post an offer</NuxtLink></Button
-          >
-          <Button as-child variant="secondary" class="w-full"
-            ><NuxtLink to="/signin"><LogIn /> Sign In</NuxtLink></Button
-          >
-        </div>
       </nav>
+      <DrawerFooter class="border-muted border-t">
+        <Button as-child class="w-full"
+          ><NuxtLink to="/">Post an offer</NuxtLink></Button
+        >
+        <Button as-child variant="secondary" class="w-full"
+          ><NuxtLink to="/signin"
+            ><Icon name="hugeicons:login-01" /> Sign In</NuxtLink
+          ></Button
+        >
+      </DrawerFooter>
     </DrawerContent>
   </Drawer>
-  <!-- -->
 </template>
 
 <script setup lang="ts">
