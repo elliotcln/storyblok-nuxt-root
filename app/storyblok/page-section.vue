@@ -68,9 +68,7 @@
 <script setup lang="ts">
 const { blok } = defineProps<{ blok: PageSection }>();
 
-const sectionBackgroundClass = ref(
-  "bg-primary/50 bg-secondary/50 bg-accent/50 bg-muted/50 bg-destructive/50",
-);
+const sectionBackgroundClass = ref("");
 
 watchEffect(() => {
   sectionBackgroundClass.value = blok.background

@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@source inline("{md:,lg:,xl:,}{grid-cols-,grid-rows-}{none,subgrid,{1..4..1}}");
+@source inline("{md:,lg:,xl:,}{col-span-,row-span-}{1..4..1}");
+@source inline("{md:,lg:,xl:,}{justify-,align-,}{start,center,end,around,between,stretch}");
+@source inline("{md:,lg:,xl:,}{justify-items-,align-items-,}{start,center,end,stretch}");
+@source inline("bg-{primary,secondary,accent,muted,destructive}/50");
 
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-animate";
@@ -119,6 +124,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

@@ -2,10 +2,19 @@
   <div
     v-editable="blok"
     :class="[
-      'grid max-lg:auto-cols-auto',
+      'flex',
+      blok.cols ? 'grid' : null,
       columnsClass,
-      blok.justify_items,
-      blok.align_items,
+      blok.justify_items
+        ? { ['lg:justify-items-' + blok.justify_items]: true }
+        : null,
+      blok.align_items
+        ? { ['lg:align-items-' + blok.align_items]: true }
+        : null,
+      blok.justify_content
+        ? { ['lg:justify-' + blok.justify_content]: true }
+        : null,
+      blok.align_content ? { ['lg:align-' + blok.align_content]: true } : null,
       blok.gap,
     ]"
   >
@@ -20,18 +29,10 @@
 <script setup lang="ts">
 const { blok } = defineProps<{ blok: GridSection }>();
 
-const columnsClass = ref("lg:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4");
-const justifyClass = ref(
-  "lg:justify-item-center lg:justify-items-start lg:justify-items-end",
-);
-const alignClass = ref(
-  "lg:align-item-center lg:align-items-start lg:align-items-end",
-);
+const columnsClass = ref("");
 
 watchEffect(() => {
-  columnsClass.value = blok.cols
-    ? "lg:grid-cols-" + blok.cols
-    : "grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]";
+  columnsClass.value = blok.cols ? "lg:grid-cols-" + blok.cols : "";
 });
 </script>
 

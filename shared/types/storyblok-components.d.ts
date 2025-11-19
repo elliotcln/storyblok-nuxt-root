@@ -61,12 +61,50 @@ export interface FaqSection {
   [k: string]: unknown;
 }
 
+export interface GridItem {
+  col_span?: string;
+  row_span?: string;
+  body?: (
+    | AppConfig
+    | ButtonItem
+    | CardItem
+    | CustomSection
+    | FaqItem
+    | FaqSection
+    | GridItem
+    | GridSection
+    | LogosSection
+    | Metatags
+    | NavItem
+    | PageDefault
+    | PageHeader
+    | PageHero
+    | PageSection
+  )[];
+  component: "grid-item";
+  _uid: string;
+  [k: string]: unknown;
+}
+
 export interface GridSection {
-  cols?: "" | "2" | "3" | "4";
-  body?: unknown[];
+  cols?: string;
   gap?: "" | "gap-4" | "gap-6" | "gap-8";
-  justify_items?: "" | "lg:justify-items-start" | "lg:justify-items-end" | "lg:justify-items-center";
-  align_items?: "" | "lg:align-items-start" | "lg:align-items-end" | "lg:align-items-center";
+  align_items?: number | string;
+  justify_items?: number | string;
+  body?: (
+    | ButtonItem
+    | CardItem
+    | FaqItem
+    | GridItem
+    | Metatags
+    | NavItem
+    | CustomSection
+    | FaqSection
+    | GridSection
+    | LogosSection
+  )[];
+  justify_content?: number | string;
+  align_content?: number | string;
   component: "grid-section";
   _uid: string;
   [k: string]: unknown;
@@ -103,22 +141,7 @@ export interface NavItem {
 }
 
 export interface PageDefault {
-  body?: (
-    | AppConfig
-    | ButtonItem
-    | CardItem
-    | CustomSection
-    | FaqItem
-    | FaqSection
-    | GridSection
-    | LogosSection
-    | Metatags
-    | NavItem
-    | PageDefault
-    | PageHeader
-    | PageHero
-    | PageSection
-  )[];
+  body?: (PageHeader | PageHero | PageSection)[];
   seo?: Metatags[];
   component: "page-default";
   _uid: string;
@@ -146,6 +169,7 @@ export interface PageHero {
     | CustomSection
     | FaqItem
     | FaqSection
+    | GridItem
     | GridSection
     | LogosSection
     | Metatags
@@ -166,7 +190,7 @@ export interface PageSection {
   background?: number | string;
   title?: string;
   description?: string;
-  body: (LogosSection | GridSection | FaqSection | CustomSection)[];
+  body: (CustomSection | FaqSection | GridSection | LogosSection)[];
   actions?: ButtonItem[];
   is_reversed?: boolean;
   content_centered?: boolean;
