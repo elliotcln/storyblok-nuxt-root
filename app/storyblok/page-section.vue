@@ -25,7 +25,10 @@
         <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
           {{ blok.title }}
         </h2>
-        <p v-if="blok.description" class="mt-4 text-lg opacity-60 sm:text-xl/8">
+        <p
+          v-if="blok.description"
+          class="mx-auto mt-4 max-w-3xl text-lg opacity-60 sm:text-xl/8"
+        >
           {{ blok.description }}
         </p>
         <div
@@ -72,7 +75,10 @@ const sectionBackgroundClass = ref("");
 
 watchEffect(() => {
   sectionBackgroundClass.value = blok.background
-    ? "bg-" + blok.background + "/50"
+    ? "text-" +
+      blok.background.replace("/50", "") +
+      "-foreground bg-" +
+      blok.background
     : "";
 });
 </script>

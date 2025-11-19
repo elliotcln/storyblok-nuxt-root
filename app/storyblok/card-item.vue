@@ -2,13 +2,15 @@
   <Card v-editable="blok" class="w-full">
     <CardHeader>
       <CardTitle>{{ blok.title }}</CardTitle>
-      <CardDescription>{{ blok.description }}</CardDescription>
+      <CardDescription v-if="blok.description">{{
+        blok.description
+      }}</CardDescription>
     </CardHeader>
-    <CardContent>
+    <CardContent v-if="blok.content">
       <!-- <Vue3RuntimeTemplate :template="resolvedRichText"></Vue3RuntimeTemplate> -->
       {{ blok.content }}
     </CardContent>
-    <CardFooter class="gap-2">
+    <CardFooter class="gap-2" v-if="blok.actions.length">
       <StoryblokComponent
         v-for="(currentBlok, index) in blok.actions"
         :key="index"

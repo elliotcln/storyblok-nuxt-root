@@ -10,7 +10,7 @@
           >{{ config.app_title }}</NuxtLink
         >
         <NuxtLink v-else to="/"
-          ><img :src="config.app_logo.filename" alt="" class="h-12"
+          ><NuxtImg :src="config.app_logo.filename" alt="" class="max-h-16"
         /></NuxtLink>
       </template>
 
@@ -19,24 +19,24 @@
       <!--  -->
 
       <div class="header-content--right flex gap-2">
-        <NavigationMobile v-if="config.nav_main" :items="config.nav_main" />
+        <NavigationMobile
+          v-if="config.nav_main"
+          :items="config.nav_main"
+          :actions="config.nav_actions"
+        />
 
-        <Button as-child class="hidden xl:inline-flex"
-          ><NuxtLink to="/">Post an offer</NuxtLink></Button
-        >
-        <Button as-child class="hidden xl:inline-flex" variant="secondary"
-          ><NuxtLink to="/signin"
-            ><Icon name="hugeicons:login-01" /> Sign In</NuxtLink
-          ></Button
-        >
+        <StoryblokComponent
+          v-for="currentBlok in config.nav_actions"
+          :key="currentBlok._uid"
+          :blok="currentBlok"
+          class="hidden xl:inline-flex"
+        />
       </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { LogIn } from "lucide-vue-next";
-
 defineProps<{
   config: AppConfig;
 }>();

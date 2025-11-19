@@ -92,24 +92,21 @@
           </li>
         </ul>
       </nav>
-      <DrawerFooter class="border-muted border-t">
-        <Button as-child class="w-full"
-          ><NuxtLink to="/">Post an offer</NuxtLink></Button
-        >
-        <Button as-child variant="secondary" class="w-full"
-          ><NuxtLink to="/signin"
-            ><Icon name="hugeicons:login-01" /> Sign In</NuxtLink
-          ></Button
-        >
+      <DrawerFooter class="border-muted border-t" v-if="actions.length">
+        <StoryblokComponent
+          v-for="currentBlok in actions"
+          :key="currentBlok._uid"
+          :blok="currentBlok"
+          class="w-full"
+        />
       </DrawerFooter>
     </DrawerContent>
   </Drawer>
 </template>
 
 <script setup lang="ts">
-import { LogIn, Menu, ChevronRight, Plus, Minus } from "lucide-vue-next";
-
 defineProps<{
+  actions: ButtonItem[];
   items: NavItem[];
 }>();
 

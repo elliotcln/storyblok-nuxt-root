@@ -23,29 +23,29 @@ const { story } = await useAsyncStoryblok(
 
 useSeoMeta({
   title: () =>
-    story?.value?.content.seo[0].title
-      ? story?.value?.content.seo[0].title
-      : null,
+    story?.value?.content?.seo[0]?.title
+      ? story?.value?.content?.seo[0]?.title
+      : "",
   description: () =>
-    story?.value?.content.seo[0].description
-      ? story?.value?.content.seo[0].description
-      : null,
+    story?.value?.content?.seo[0]?.description
+      ? story?.value?.content?.seo[0]?.description
+      : "",
   ogImage: () =>
-    story?.value?.content.seo[0].og_image.filename
-      ? story?.value?.content.seo[0].og_image.filename
-      : null,
+    story?.value?.content?.seo[0]?.og_image.filename
+      ? story?.value?.content?.seo[0]?.og_image.filename
+      : "",
   twitterTitle: () =>
-    story?.value?.content.seo[0].x_title
-      ? story?.value?.content.seo[0].x_title
-      : null,
+    story?.value?.content?.seo[0]?.x_title
+      ? story?.value?.content?.seo[0]?.x_title
+      : "",
   twitterDescription: () =>
-    story?.value?.content.seo[0].x_description
-      ? story?.value?.content.seo[0].x_description
-      : null,
+    story?.value?.content?.seo[0]?.x_description
+      ? story?.value?.content?.seo[0]?.x_description
+      : "",
   twitterImage: () =>
-    story?.value?.content.seo[0].x_image.filename
-      ? story?.value?.content.seo[0].x_image.filename
-      : null,
+    story?.value?.content?.seo[0]?.x_image.filename
+      ? story?.value?.content?.seo[0]?.x_image.filename
+      : "",
 });
 </script>
 

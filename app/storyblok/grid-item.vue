@@ -2,7 +2,10 @@
   <div
     v-editable="blok"
     :class="[
-      blok.col_span ? { ['lg:col-span-' + blok.col_span]: true } : 'auto',
+      blok.col_span_md ? { ['md:col-span-' + blok.col_span_md]: true } : null,
+      blok.col_span_lg ? { ['lg:col-span-' + blok.col_span_lg]: true } : null,
+      blok.row_span_md ? { ['md:row-span-' + blok.row_span_md]: true } : null,
+      blok.row_span_lg ? { ['lg:row-span-' + blok.row_span_lg]: true } : null,
     ]"
   >
     <StoryblokComponent

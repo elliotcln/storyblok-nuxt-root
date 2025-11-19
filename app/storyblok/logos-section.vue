@@ -7,19 +7,18 @@
         v-if="logo.meta_data.source"
         :to="logo.meta_data.source"
         target="_blank"
-        class="max-w-[200px]"
       >
         <NuxtImg
           :src="logo.filename"
           :alt="logo.alt || null"
-          class="h-8 w-full object-fill grayscale-100 transition duration-300 hover:grayscale-0"
+          class="object-fit h-8 w-full max-w-[200px] grayscale-100 transition duration-300 hover:grayscale-0"
         />
       </NuxtLink>
       <NuxtImg
         v-else
         :src="logo.filename"
         :alt="logo.alt || null"
-        class="h-8 w-full max-w-[200px] object-fill grayscale-100 transition duration-300 hover:grayscale-0"
+        class="object-fit h-8 w-full max-w-[200px] grayscale-100 transition duration-300 hover:grayscale-0"
       />
     </template>
   </div>

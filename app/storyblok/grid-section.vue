@@ -2,20 +2,35 @@
   <div
     v-editable="blok"
     :class="[
-      'flex',
-      blok.cols ? 'grid' : null,
+      blok.body.length > 1 ? { ['grid']: true } : 'grid md:flex',
       columnsClass,
-      blok.justify_items
-        ? { ['lg:justify-items-' + blok.justify_items]: true }
-        : null,
-      blok.align_items
-        ? { ['lg:align-items-' + blok.align_items]: true }
-        : null,
-      blok.justify_content
-        ? { ['lg:justify-' + blok.justify_content]: true }
-        : null,
-      blok.align_content ? { ['lg:align-' + blok.align_content]: true } : null,
       blok.gap,
+      blok.cols_md ? { ['md:grid-cols-' + blok.cols_md]: true } : null,
+      blok.cols_lg ? { ['lg:grid-cols-' + blok.cols_lg]: true } : null,
+      blok.align_content_md
+        ? { ['md:align-' + blok.align_content_md]: true }
+        : null,
+      blok.align_content_lg
+        ? { ['lg:align-' + blok.align_content_lg]: true }
+        : null,
+      blok.justify_content_md
+        ? { ['md:justify-' + blok.justify_content_md]: true }
+        : null,
+      blok.justify_content_lg
+        ? { ['lg:justify-' + blok.justify_content_lg]: true }
+        : null,
+      blok.align_items_md
+        ? { ['md:align-items-' + blok.align_items_md]: true }
+        : null,
+      blok.align_items_lg
+        ? { ['lg:align-items' + blok.align_items_lg]: true }
+        : null,
+      blok.justify_items_md
+        ? { ['md:justify-items-' + blok.justify_items_md]: true }
+        : null,
+      blok.justify_items_lg
+        ? { ['lg:justify-items' + blok.justify_items_lg]: true }
+        : null,
     ]"
   >
     <StoryblokComponent
@@ -28,11 +43,12 @@
 
 <script setup lang="ts">
 const { blok } = defineProps<{ blok: GridSection }>();
-
 const columnsClass = ref("");
 
 watchEffect(() => {
-  columnsClass.value = blok.cols ? "lg:grid-cols-" + blok.cols : "";
+  columnsClass.value = !blok.cols_md
+    ? "grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))]"
+    : "";
 });
 </script>
 
