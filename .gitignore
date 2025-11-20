@@ -25,3 +25,6 @@ logs
 !.env.example
 cert.pem
 key.pem
+
+#
+alty-lucide-icon-fetch

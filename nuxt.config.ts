@@ -1,5 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
-import mkcert from "vite-plugin-mkcert";
+// import mkcert from "vite-plugin-mkcert";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
   ],
   css: ["~/assets/css/app.css"],
-  vite: { plugins: [tailwindcss(), mkcert()] },
+  vite: { plugins: [tailwindcss()] },
 
   shadcn: {
     prefix: "",

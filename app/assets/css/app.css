@@ -6,7 +6,7 @@
 @source inline("bg-{primary,secondary,accent,muted,destructive}/50");
 
 @plugin "@tailwindcss/typography";
-@plugin "tailwindcss-animate";
+/* @plugin "tailwindcss-animate"; */
 
 @custom-variant dark (&:is(.dark *));
 
