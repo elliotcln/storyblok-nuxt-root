@@ -7,7 +7,6 @@
       }}</CardDescription>
     </CardHeader>
     <CardContent v-if="blok.content">
-      <!-- <Vue3RuntimeTemplate :template="resolvedRichText"></Vue3RuntimeTemplate> -->
       {{ blok.content }}
     </CardContent>
     <CardFooter class="gap-2" v-if="blok.actions.length">

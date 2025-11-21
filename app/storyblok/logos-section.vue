@@ -11,14 +11,14 @@
         <NuxtImg
           :src="logo.filename"
           :alt="logo.alt || null"
-          class="object-fit h-8 w-full max-w-[200px] grayscale-100 transition duration-300 hover:grayscale-0"
+          class="object-fit h-8 w-full max-w-[200px] shrink-0 grayscale-100 transition duration-300 hover:grayscale-0"
         />
       </NuxtLink>
       <NuxtImg
         v-else
         :src="logo.filename"
         :alt="logo.alt || null"
-        class="object-fit h-8 w-full max-w-[200px] grayscale-100 transition duration-300 hover:grayscale-0"
+        class="object-fit h-8 w-full max-w-[200px] shrink-0 grayscale-100 transition duration-300 hover:grayscale-0"
       />
     </template>
   </div>
