@@ -1,4 +1,5 @@
 <template>
+  <CookiesConsent />
   <SkipLinks />
   <AppHeader :config="config" />
   <main
